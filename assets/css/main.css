@@ -67,6 +67,24 @@
 
 	}
 
+  @media screen and (min-width: 360px) {
+    html {
+      height: 100%;
+    }
+
+    #wrapper {
+      min-height: 100%;
+    }
+
+    body {
+      height: 100%;
+    }
+
+    body.is-ie #wrapper {
+      height: 100%;
+    }
+  }
+
 	body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 		-moz-animation: none !important;
 		-webkit-animation: none !important;
@@ -78,12 +96,8 @@
 		transition: none !important;
 	}
 
-	html {
-		height: 100%;
-	}
 
 	body {
-		height: 100%;
 		background-color: #ffffff;
 		background-image: url("images/overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
 		background-image: url("images/overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
@@ -829,7 +843,6 @@
 		-ms-perspective: 1000px;
 		perspective: 1000px;
 		position: relative;
-		min-height: 100%;
 		padding: 1.5em;
 		z-index: 2;
 	}
@@ -851,6 +864,3 @@
 
 		}
 
-		body.is-ie #wrapper {
-			height: 100%;
-		}
