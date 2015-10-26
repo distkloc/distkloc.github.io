@@ -7,9 +7,6 @@ gulp.task('css', function () {
       .pipe(sass())
       .pipe(gulp.dest('dist/css'))
       .pipe(browserSync.stream());
-
-  gulp.src('assets/css/**/*css')
-      .pipe(gulp.dest('dist/css'));
 });
 
 gulp.task('js', function () {
@@ -17,22 +14,20 @@ gulp.task('js', function () {
       .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('font', function () {
-  gulp.src('assets/fonts/**/*')
-      .pipe(gulp.dest('dist/fonts'));
-});
-
-gulp.task('html', function () {
-  gulp.src('*.html')
-      .pipe(gulp.dest('dist'));
-});
-
 gulp.task('image', function () {
   gulp.src('images/**/*')
       .pipe(gulp.dest('dist/images'));
 });
 
-gulp.task('serve', ['css', 'js', 'font', 'html', 'image'], function () {
+gulp.task('sync', function() {
+  gulp.src(['assets/css/**/*css', 'assets/fonts/**/*'], { base: 'assets' })
+      .pipe(gulp.dest('dist'));
+
+  gulp.src(['index.html', 'CNAME'], { base: '.' })
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('serve', ['css', 'js', 'image', 'sync'], function () {
   browserSync.init({
     server: {
       baseDir: "dist/"
@@ -42,6 +37,5 @@ gulp.task('serve', ['css', 'js', 'font', 'html', 'image'], function () {
   gulp.watch(['assets/sass/*.sass'], ['css']);
   gulp.watch(['index.html'], ['html']).on('change', browserSync.reload);
 });
-
 
 gulp.task('default', ['serve']);
