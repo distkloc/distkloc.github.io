@@ -1,0 +1,25 @@
+{
+  "name": "distkloc.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.9.11",
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.0.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/distkloc/distkloc.github.io.git"
+  },
+  "author": "distkloc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/distkloc/distkloc.github.io/issues"
+  },
+  "homepage": "https://github.com/distkloc/distkloc.github.io#readme"
+}
