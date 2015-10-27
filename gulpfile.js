@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
-    browserSync = require('browser-sync');
+    browserSync = require('browser-sync'),
+    ghPages = require('gulp-gh-pages');
 
 gulp.task('css', function () {
   gulp.src('assets/sass/**/*scss')
@@ -36,6 +37,11 @@ gulp.task('serve', ['css', 'js', 'image', 'sync'], function () {
 
   gulp.watch(['assets/sass/*.sass'], ['css']);
   gulp.watch(['index.html'], ['html']).on('change', browserSync.reload);
+});
+
+gulp.task('deploy', function () {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages({ branch: 'master' }));
 });
 
 gulp.task('default', ['serve']);
