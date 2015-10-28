@@ -2,12 +2,14 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
     ghPages = require('gulp-gh-pages'),
-    concatCss = require('gulp-concat-css');
+    concatCss = require('gulp-concat-css'),
+    minifyCss = require('gulp-minify-css');
 
 gulp.task('css', function () {
   gulp.src(['node_modules/font-awesome/scss/**/*scss', 'assets/sass/**/*scss'])
       .pipe(sass())
       .pipe(concatCss('bundle.css'))
+      .pipe(minifyCss())
       .pipe(gulp.dest('dist/css'))
       .pipe(browserSync.stream());
 });
