@@ -1,11 +1,13 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
-    ghPages = require('gulp-gh-pages');
+    ghPages = require('gulp-gh-pages'),
+    concatCss = require('gulp-concat-css');
 
 gulp.task('css', function () {
-  gulp.src('assets/sass/**/*scss')
+  gulp.src(['node_modules/font-awesome/scss/**/*scss', 'assets/sass/**/*scss'])
       .pipe(sass())
+      .pipe(concatCss('bundle.css'))
       .pipe(gulp.dest('dist/css'))
       .pipe(browserSync.stream());
 });
@@ -21,8 +23,8 @@ gulp.task('image', function () {
 });
 
 gulp.task('sync', function() {
-  gulp.src(['assets/css/**/*css', 'assets/fonts/**/*'], { base: 'assets' })
-      .pipe(gulp.dest('dist'));
+  gulp.src('node_modules/font-awesome/fonts/**/*')
+      .pipe(gulp.dest('dist/fonts'));
 
   gulp.src(['index.html', 'CNAME'], { base: '.' })
     .pipe(gulp.dest('dist'));
@@ -36,7 +38,7 @@ gulp.task('serve', ['css', 'js', 'image', 'sync'], function () {
   });
 
   gulp.watch(['assets/sass/*.sass'], ['css']);
-  gulp.watch(['index.html'], ['html']).on('change', browserSync.reload);
+  gulp.watch(['index.html'], ['sync']).on('change', browserSync.reload);
 });
 
 gulp.task('deploy', function () {
