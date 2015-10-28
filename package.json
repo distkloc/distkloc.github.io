@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "font-awesome": "^4.4.0"
+  },
   "devDependencies": {
     "browser-sync": "^2.9.11",
     "gulp": "^3.9.0",
+    "gulp-concat-css": "^2.2.0",
     "gulp-gh-pages": "^0.5.4",
     "gulp-sass": "^2.0.4"
   },
