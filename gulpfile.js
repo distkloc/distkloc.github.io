@@ -6,9 +6,8 @@ var gulp = require('gulp'),
     minifyCss = require('gulp-minify-css');
 
 gulp.task('css', function () {
-  gulp.src(['node_modules/font-awesome/scss/**/*scss', 'assets/sass/**/*scss'])
+  gulp.src(['assets/sass/**/*scss'])
       .pipe(sass())
-      .pipe(concatCss('bundle.css'))
       .pipe(minifyCss())
       .pipe(gulp.dest('dist/css'))
       .pipe(browserSync.stream());
