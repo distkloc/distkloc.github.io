@@ -38,7 +38,7 @@ gulp.task('serve', ['css', 'js', 'image', 'sync'], function () {
     }
   });
 
-  gulp.watch(['assets/sass/*.sass'], ['css']);
+  gulp.watch(['assets/sass/**/*.scss'], ['css']);
   gulp.watch(['index.html'], ['sync']).on('change', browserSync.reload);
 });
 
