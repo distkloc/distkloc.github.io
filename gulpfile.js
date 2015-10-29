@@ -33,7 +33,7 @@ gulp.task('sync', function() {
   gulp.src('node_modules/font-awesome/fonts/**/*')
       .pipe(gulp.dest('dist/fonts'));
 
-  gulp.src(['index.html', 'CNAME'], { base: '.' })
+  gulp.src(['index.html'])
     .pipe(gulp.dest('dist'));
 });
 
@@ -48,7 +48,12 @@ gulp.task('serve', ['clean', 'css', 'js', 'image', 'sync'], function () {
   gulp.watch(['index.html'], ['sync']).on('change', browserSync.reload);
 });
 
-gulp.task('deploy', function () {
+gulp.task('dns', function () {
+  gulp.src('CNAME')
+      .pipe(gulp.dest('dist'));
+});
+
+gulp.task('deploy', ['dns'], function () {
   return gulp.src('./dist/**/*')
     .pipe(ghPages({ branch: 'master' }));
 });
