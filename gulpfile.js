@@ -2,7 +2,6 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
     ghPages = require('gulp-gh-pages'),
-    concatCss = require('gulp-concat-css'),
     minifyCss = require('gulp-minify-css');
 
 gulp.task('css', function () {
