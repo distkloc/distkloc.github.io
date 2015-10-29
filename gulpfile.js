@@ -2,7 +2,14 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
     ghPages = require('gulp-gh-pages'),
-    minifyCss = require('gulp-minify-css');
+    minifyCss = require('gulp-minify-css'),
+    del = require('del');
+
+gulp.task('clean', function () {
+  del([
+    'dist/'
+  ]);
+});
 
 gulp.task('css', function () {
   gulp.src(['assets/sass/**/*scss'])
@@ -30,7 +37,7 @@ gulp.task('sync', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('serve', ['css', 'js', 'image', 'sync'], function () {
+gulp.task('serve', ['clean', 'css', 'js', 'image', 'sync'], function () {
   browserSync.init({
     server: {
       baseDir: "dist/"
