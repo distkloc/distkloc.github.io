@@ -7,7 +7,9 @@ var gulp = require('gulp'),
 
 gulp.task('clean', function () {
   del([
-    'dist/'
+    'dist/**/*',
+    // Exclude
+    '!dist/CNAME'
   ]);
 });
 
