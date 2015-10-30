@@ -6,11 +6,11 @@
 //Override font-awesome variables
 $fa-css-prefix: 'fas';
 
-@import '../../node_modules/font-awesome/scss/variables';
-@import '../../node_modules/font-awesome/scss/mixins';
-@import '../../node_modules/font-awesome/scss/path';
-@import '../../node_modules/font-awesome/scss/core';
-@import '../../node_modules/font-awesome/scss/icons';
+@import '../../../node_modules/font-awesome/scss/variables';
+@import '../../../node_modules/font-awesome/scss/mixins';
+@import '../../../node_modules/font-awesome/scss/path';
+@import '../../../node_modules/font-awesome/scss/core';
+@import '../../../node_modules/font-awesome/scss/icons';
 
 @import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300');
 
