@@ -51,7 +51,7 @@ gulp.task('serve', ['clean', 'css', 'js', 'image', 'sync'], function () {
 });
 
 gulp.task('dns', function () {
-  gulp.src('CNAME')
+  gulp.src('src/CNAME')
       .pipe(gulp.dest('dist'));
 });
 
